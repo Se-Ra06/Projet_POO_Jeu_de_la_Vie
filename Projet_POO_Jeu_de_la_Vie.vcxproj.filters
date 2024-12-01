@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Composants">
+      <UniqueIdentifier>{396b384b-d256-407b-b813-2c77f5c87781}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service">
+      <UniqueIdentifier>{c4475098-ba93-4cb7-a864-a12e8599cc4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Composants\Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Composants\Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Service\Fichiers d%27en-tête">
+      <UniqueIdentifier>{013b405e-7ee0-4b1c-b24a-01335844130f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Service\Fichiers sources">
+      <UniqueIdentifier>{af552959-d90f-4a87-b1e9-30a52669d5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{e6e2b7db-dccb-4e08-90be-78bbf0e24e76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Fichiers d%27en-tête">
+      <UniqueIdentifier>{d9a16913-c7a9-4916-9a56-7c23e22a204c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Fichiers sources">
+      <UniqueIdentifier>{a79112f1-c539-45a8-a41c-5fe38cccb2b7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cmpCellule.h">
+      <Filter>Composants\Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="cmpCelluleVie.h">
+      <Filter>Composants\Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="cmpCelluleMort.h">
+      <Filter>Composants\Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="cmpGrille.h">
+      <Filter>Composants\Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="cmpFichier.h">
+      <Filter>Composants\Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cmpCelluleVie.cpp">
+      <Filter>Composants\Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="cmpCelluleMort.cpp">
+      <Filter>Composants\Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="cmpFichier.cpp">
+      <Filter>Composants\Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="cmpGrille.cpp">
+      <Filter>Composants\Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
