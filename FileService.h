@@ -1,19 +1,15 @@
 #ifndef FILESERVICE_H
 #define FILESERVICE_H
 
-#include <string>
 #include "Grille.h"
-
-using namespace std;
+#include <string>
 
 class FileService {
 public:
-   
-    static Grille chargerDepuisFichier(const string& nomFichier);
-
-
-    static void sauvegarderDansFichier(const Grille& grille, const string& nomFichier);
+    bool ValiderFichier(const string& nomfichier);
+    void ChargerDuFichier(const string& nomfichier, Grille& grille);
+    void SauvegarderAuFichier(const string& nomfichier, const Grille& grille);
+    void CreateOutputDir(const string& directory);
 };
 
-#endif 
-
+#endif
