@@ -63,10 +63,10 @@ bool Grille::GetCelluleEtat(int x, int y) {
 
 void Grille::SetCelluleEtat(int x, int y, bool etat) {
 	if (x < 0 || x >= largeur || y < 0 || y >= longueur) {
-		throw std::out_of_range("Coordonnées hors de la grille");
+		throw std::out_of_range("CoordonnÃ©es hors de la grille");
 	}
 	if (grid[y][x] != nullptr) {
-		delete grid[y][x]; // Supprimer l'ancienne cellule
+		delete grid[y][x]; 
 	}
 	grid[y][x] = etat ? static_cast<Cellule*>(new CelluleVie())
 		: static_cast<Cellule*>(new CelluleMort());
