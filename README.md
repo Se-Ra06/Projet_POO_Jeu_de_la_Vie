@@ -2,17 +2,17 @@
 Ce projet vous est présenté par RADI Selma Meriem et RECHAM Wissam
 
 # Table des matière :
-- [Introduction] (#Introduction)
-- [Règles du Je de la Vie] (#Règles du Je de la Vie)
-- [Architecture du projet] (#Architecture du projet)
-- [Diagramme UML] (#Diagramme UML)
-- [Fonctionnalité] (#Fonctionnalité)
-- [Extensions Implémentées] (#Extensions Implémentées)
-- [Prérequis Techniques] (#Prérequis Techniques)
-- [Installation et Exécution] (#Installation et Exécution)
-- [Utilisation] (#Utilisation)
-- [Objectifs Pédagogiques] (#Objectifs Pédagogiques)
-- [Conclusion] (#Conclusion)
+- [Introduction] 
+- [Règles du Je de la Vie] 
+- [Architecture du projet] 
+- [Diagramme UML] 
+- [Fonctionnalité] 
+- [Extensions Implémentées] 
+- [Prérequis Techniques] 
+- [Installation et Exécution] 
+- [Utilisation] 
+- [Objectifs Pédagogiques] 
+- [Conclusion] 
 
   
 # Introduction
