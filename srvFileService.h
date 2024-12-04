@@ -3,13 +3,14 @@
 
 #include "Grille.h"
 #include <string>
+#include <vector>
 
 class FileService {
 public:
-    bool ValiderFichier(const string& nomfichier);
-    void ChargerDuFichier(const string& nomfichier, Grille& grille);
-    void SauvegarderAuFichier(const string& nomfichier, const Grille& grille);
-    void CreateOutputDir(const string& directory);
+    static Grille ChargerDuFichier(const std::string& fichier);
+    static void SauvegarderGrille(const Grille& grille, const std::string& fichier);
+    static void SauvegarderIteration(const Grille& grille, const std::string& outputDir, int iteration);
+    static std::vector<std::vector<int>> LireEtatGrille(const std::string& fichier);
 };
 
 #endif
