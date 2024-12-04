@@ -2,12 +2,11 @@
 #define CELLULE_H
 
 class Cellule {
-protected:
-	int voisins;
 public:
-	virtual ~Cellule() {}
-	virtual bool status() = 0;
-	virtual Cellule* nextStatus(int voisins) = 0;
+    virtual ~Cellule() = default;
+    // Méthodes virtuelles pures
+    virtual bool status() const = 0; 
+    virtual bool nextStatus(int voisinsVivants) const = 0;
 };
 
 #endif 
