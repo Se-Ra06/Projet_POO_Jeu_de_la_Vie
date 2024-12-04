@@ -45,27 +45,27 @@ Le projet est structuré en trois couches principales pour une meilleure organis
 # Diagramme_UML
 
 - Le diagramme UML représentant les couches et leurs relations est inclus dans le projet (voir le fichier diagramme UML).
-Fonctionnalités
-Mode Console
+# Fonctionnalités
+- Mode Console
 
-    Permet de visualiser les états successifs de la grille sous forme textuelle.
-    Les résultats sont enregistrés dans des fichiers et organisés en dossiers.
-    Chaque itération est sauvegardée selon un format défini.
+Permet de visualiser les états successifs de la grille sous forme textuelle.
+Les résultats sont enregistrés dans des fichiers et organisés en dossiers.
+Chaque itération est sauvegardée selon un format défini.
 
 - Mode Graphique
 
     Permet de visualiser et manipuler la grille via une interface graphique :
-        Cliquez gauche pour rendre une cellule vivante.
-        Espace pour lancer/arrêter la simulation.
-        R pour réinitialiser la grille.
+    Cliquez gauche pour rendre une cellule vivante.
+    Espace pour lancer/arrêter la simulation.
+    R pour réinitialiser la grille.
     Les motifs peuvent être créés librement ou ajoutés à l'aide de motifs prédéfinis.
 
-- Extensions Implémentées
+  # Extensions Implémentées
 
-    Grille Torique : Les cellules situées sur les bords de la grille sont connectées, formant une surface "enroulée".
-    Motifs Préprogrammés : Possibilité d'insérer des motifs prédéfinis sur la grille en appuyant sur des touches spécifiques.
+    - Grille Torique : Les cellules situées sur les bords de la grille sont connectées, formant une surface "enroulée".
+    - Motifs Préprogrammés : Possibilité d'insérer des motifs prédéfinis sur la grille en appuyant sur des touches spécifiques.
 
-- Prérequis Techniques
+  # Prérequis Techniques
 
     C++17 ou supérieur
     SFML (pour le mode graphique)
