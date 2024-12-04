@@ -1,16 +1,9 @@
-#include "cmpCelluleVie.h"
-#include "cmpCelluleMort.h"
-#include "cmpCellule.h"
+#include "CelluleMort.h"
 
-CelluleMort::CelluleMort() {}
-
-bool CelluleMort::status() {
-	return 0;
+bool CelluleMort::status() const {
+    return false;
 }
 
-Cellule* CelluleMort::nextStatus(int voisins) {
-	if (voisins == 3) {
-		return new CelluleVie();
-	}
-	else { return new CelluleMort(); }
+bool CelluleMort::nextStatus(int voisinsVivants) const {
+    return (voisinsVivants == 3);
 }
