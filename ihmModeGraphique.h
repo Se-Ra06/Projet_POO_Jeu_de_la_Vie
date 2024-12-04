@@ -2,8 +2,7 @@
 #define MODEGRAPHIQUE_H
 
 #include <SFML/Graphics.hpp>
-#include "cmpGrille.h"
-
+#include "Grille.h"
 
 class ModeGraphique {
 public:
@@ -12,11 +11,11 @@ public:
 	const int GRILLE_LONGUEUR = 50;
 	const int TAILLE_CELLULE = 15;
 
-	// Types
-	using Grille = std::vector<std::vector<bool>>;
+	
+	using GrilleGraph = std::vector<std::vector<bool>>;
 
 	void run();
-	void mettreAJourGrille(Grille& grid, Grille& nextGrid);
+	void mettreAJourGrille(GrilleGraph& grille, GrilleGraph& nextGrille);
 };
 
 #endif
