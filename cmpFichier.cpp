@@ -1,53 +1,44 @@
-#include "cmpFichier.h"
-#include "cmpGrille.h"
-#include "cmpCellule.h"
-#include "cmpCelluleVie.h"
-#include "cmpCelluleMort.h"
+#include "Fichier.h"
 #include <fstream>
-#include <iostream>
-using namespace std;
+#include <stdexcept>
+#include <sstream>
+#include <string>
 
-Grille Fichier::LireFichier(const string& fichier) {
-	ifstream file(fichier);
-	if (!file.is_open()) {
-		throw runtime_error("Impossible d'ouvrir le fichier.");
-	}
-	vector<string> lines;
-	string line;
-	int largeur = 0;
 
-	while (getline(file, line)) {
-		lines.push_back(line);
-		if (line.length() > largeur) {
-			largeur = line.length();
-		}
-	}
-	file.close();
+Fichier::Fichier(const std::string& nom) : nomFichier(nom) {}
 
-	int longueur = lines.size();
-	Grille grille(longueur, largeur);
+Grille Fichier::LireFichier() const {
+    std::ifstream inFile(nomFichier);
+    if (!inFile) {
+        throw std::runtime_error("Impossible d'ouvrir le fichier : " + nomFichier);
+    }
 
-	for (int y = 0; y < longueur; y++) {
-		for (int x = 0; x < largeur; x++) {
-			char c = (x < lines[y].size()) ? lines[y][x] : '0';
-			grille.SetCelluleEtat(x, y, c == '1');
-		}
-	}
-	return grille;
+    int longueur, largeur;
+    inFile >> longueur >> largeur;
+
+    std::vector<std::vector<int>> etatInitial(longueur, std::vector<int>(largeur));
+    for (int i = 0; i < longueur; ++i) {
+        for (int j = 0; j < largeur; ++j) {
+            inFile >> etatInitial[i][j];
+        }
+    }
+
+    Grille grille(largeur, longueur);
+    grille.InitialisationGrille(etatInitial);
+    return grille;
 }
 
-void Fichier::EcrireFichier(const Grille& grid, const string& fichier) {
-	ofstream file(fichier);
-	if (!file.is_open()) {
-		throw runtime_error("Impossible d'écrire dans le fichier.");
-	}
+void Fichier::EcrireFichier(const Grille& grille, const std::string& fichierSortie) const {
+    std::ofstream outFile(fichierSortie);
+    if (!outFile) {
+        throw std::runtime_error("Impossible d'Ã©crire dans le fichier : " + fichierSortie);
+    }
 
-	const auto& grille = grid.grid;
-	for (const auto& row : grille) {
-		for (const auto& cell : row) {
-			file << (cell->status() ? '1' : '0');
-		}
-		file << 'n';
-	}
-	file.close();
+    outFile << grille.getLongueur() << " " << grille.getLargeur() << "\n";
+    for (int i = 0; i < grille.getLongueur(); ++i) {
+        for (int j = 0; j < grille.getLargeur(); ++j) {
+            outFile << grille.GetCelluleEtat(i, j) << " ";
+        }
+        outFile << "\n";
+    }
 }
