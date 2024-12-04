@@ -1,21 +1,16 @@
 #ifndef MODECONSOLE_H
 #define MODECONSOLE_H
 
-#include<iostream>
-#include<string>
-#include "Grille.h"
+#include <string>
 #include "Jeu.h"
 
-using namespace std;
-
 class ModeConsole {
+private:
+    std::string inputFile;
+    std::string outputDir;
 
-    private:
-    string inputFile;
-    string outputDir;
-
-    public:
-    ModeConsole(const string& inputFile, const string& outputDir);
+public:
+    ModeConsole(const std::string& inputFile, const std::string& outputDir);
     void run();
 };
 
