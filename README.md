@@ -1,5 +1,5 @@
 # Projet_POO_Jeu_de_la_Vie
-<This project is presented to you by RADI Selma Meriem et RECHAM Wissam>
+This project is presented to you by RADI Selma Meriem et RECHAM Wissam
 
 # Introduction
 Le Jeu de la Vie est un automate cellulaire conçu par le mathématicien John Conway en 1970. Il s'agit d'un modèle de simulation où des cellules sur une grille évoluent au fil du temps selon des règles simples, mais capables de générer des comportements complexes. Ce projet illustre comment un système basé sur des principes simples peut aboutir à des configurations dynamiques et imprévisibles.
@@ -10,7 +10,7 @@ L’objectif de ce projet est de reproduire ces comportements en exploitant des 
 - Un mode console, pour la simplicité et l’accès aux fichiers d’état.
 - Un mode graphique, offrant une interface utilisateur interactive grâce à SFML.
 
-# Règles_du_Jeu_de_la_Vie
+## Règles_du_Jeu_de_la_Vie
 Les règles définissent la manière dont une cellule passe de l’état "vivante" à "morte" ou inversement, selon son environnement immédiat (voisins). Ces règles sont déterministes :
 
    <Pour une cellule vivante :>
@@ -24,7 +24,7 @@ Surpopulation si elle a plus de 3 voisins vivants.
 Elle devient vivante si elle a exactement 3 voisins vivants.
 Elle reste morte dans les autres cas.
 
-# Architecture_du_Projet
+## Architecture_du_Projet
 
 
 Le projet est structuré en trois couches principales pour une meilleure organisation et modularité :
@@ -42,10 +42,10 @@ Le projet est structuré en trois couches principales pour une meilleure organis
         Mode Console : Permet de visualiser et sauvegarder les états successifs sous forme textuelle.
         Mode Graphique : Utilise la bibliothèque SFML pour afficher et interagir avec la grille via une interface graphique.
 
-# Diagramme_UML
+## Diagramme_UML
 
 - Le diagramme UML représentant les couches et leurs relations est inclus dans le projet (voir le fichier diagramme UML).
-# Fonctionnalités
+## Fonctionnalités
 - Mode Console
 
 Permet de visualiser les états successifs de la grille sous forme textuelle.
@@ -60,18 +60,18 @@ Chaque itération est sauvegardée selon un format défini.
     R pour réinitialiser la grille.
     Les motifs peuvent être créés librement ou ajoutés à l'aide de motifs prédéfinis.
 
-  # Extensions Implémentées
+  ## Extensions Implémentées
 
     - Grille Torique : Les cellules situées sur les bords de la grille sont connectées, formant une surface "enroulée".
     - Motifs Préprogrammés : Possibilité d'insérer des motifs prédéfinis sur la grille en appuyant sur des touches spécifiques.
 
-  # Prérequis Techniques
+  ## Prérequis Techniques
 
     C++17 ou supérieur
     SFML (pour le mode graphique)
     Make (pour la compilation)
 
-# Installation_et_Exécution
+## Installation_et_Exécution
 - Depuis le Terminal:
 
     Clonez le dépôt Git :
@@ -100,7 +100,7 @@ make
 
     Lancez le projet en cliquant sur l'icône de lancement (bouton vert en haut de l'interface).
 
-  # Utilisation
+  ## Utilisation
     <Choix du Mode :>
         - Console : Affiche les états successifs sous forme textuelle.
         - Graphique : Ouvre une fenêtre interactive.
@@ -112,7 +112,7 @@ make
       - Réinitialiser la grille :
             Appuyez sur R.
 
-# Objectifs Pédagogiques
+## Objectifs Pédagogiques
 
 Ce projet vise à :
 
