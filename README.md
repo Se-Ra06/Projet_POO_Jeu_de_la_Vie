@@ -101,21 +101,32 @@ make
     Lancez le projet en cliquant sur l'icône de lancement (bouton vert en haut de l'interface).
 
   # Utilisation
-    Choix du Mode :
-        Console : Affiche les états successifs sous forme textuelle.
-        Graphique : Ouvre une fenêtre interactive.
-    Mode Graphique :
-        Créer un motif :
+    <Choix du Mode :>
+        - Console : Affiche les états successifs sous forme textuelle.
+        - Graphique : Ouvre une fenêtre interactive.
+    <Mode Graphique :>
+        - Créer un motif :
             Utilisez le clic gauche pour rendre une cellule vivante.
-        Lancer la simulation :
+        - Lancer la simulation :
             Appuyez sur Espace pour démarrer ou arrêter la simulation.
-        Réinitialiser la grille :
+      - Réinitialiser la grille :
             Appuyez sur R.
 
 # Objectifs Pédagogiques
 
 Ce projet vise à :
 
-Approfondir la maîtrise des concepts fondamentaux de la programmation orientée objet (POO) en C++.
-Structurer un programme de manière modulaire.
-Exploiter des outils modernes comme la bibliothèque SFML pour le développement d’interfaces graphiques.
+- Approfondir la maîtrise des concepts fondamentaux de la programmation orientée objet (POO) en C++.
+- Structurer un programme de manière modulaire.
+- Exploiter des outils modernes comme la bibliothèque SFML pour le développement d’interfaces graphiques.
+
+
+  # Conclusion
+  Le Jeu de la Vie est un projet qui combine simplicité des règles et richesse des résultats. En le développant, nous avons appliqué les concepts essentiels de la 
+  programmation orientée objet tout en structurant le code de manière claire et modulaire.
+
+  Ce projet nous a permis d’approfondir nos compétences en C++, d’explorer le développement graphique avec SFML et de relever des défis techniques, comme la 
+  gestion des grilles ou l’optimisation des calculs.
+
+  En résumé, ce travail offre une solution complète et extensible, tout en fournissant une base solide pour de futures améliorations ou extensions. C’est une 
+  excellente opportunité de lier théorie et pratique de manière ludique et instructive.
