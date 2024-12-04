@@ -100,12 +100,10 @@ make
 
     Lancez le projet en cliquant sur l'icône de lancement (bouton vert en haut de l'interface).
 
-# Utilisation
-
+  # Utilisation
     Choix du Mode :
         Console : Affiche les états successifs sous forme textuelle.
         Graphique : Ouvre une fenêtre interactive.
-
     Mode Graphique :
         Créer un motif :
             Utilisez le clic gauche pour rendre une cellule vivante.
@@ -114,10 +112,10 @@ make
         Réinitialiser la grille :
             Appuyez sur R.
 
-Objectifs Pédagogiques
+# Objectifs Pédagogiques
 
 Ce projet vise à :
 
-    Approfondir la maîtrise des concepts fondamentaux de la programmation orientée objet (POO) en C++.
-    Structurer un programme de manière modulaire.
-    Exploiter des outils modernes comme la bibliothèque SFML pour le développement d’interfaces graphiques.
+Approfondir la maîtrise des concepts fondamentaux de la programmation orientée objet (POO) en C++.
+Structurer un programme de manière modulaire.
+Exploiter des outils modernes comme la bibliothèque SFML pour le développement d’interfaces graphiques.
