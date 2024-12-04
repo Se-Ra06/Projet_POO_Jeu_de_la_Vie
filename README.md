@@ -1,6 +1,20 @@
 # Projet_POO_Jeu_de_la_Vie
-This project is presented to you by RADI Selma Meriem et RECHAM Wissam
+Ce projet vous est présenté par RADI Selma Meriem et RECHAM Wissam
 
+# Table des matière :
+- [Introduction] (#Introduction)
+- [Règles du Je de la Vie] (#Règles du Je de la Vie)
+- [Architecture du projet] (#Architecture du projet)
+- [Diagramme UML] (#Diagramme UML)
+- [Fonctionnalité] (#Fonctionnalité)
+- [Extensions Implémentées] (#Extensions Implémentées)
+- [Prérequis Techniques] (#Prérequis Techniques)
+- [Installation et Exécution] (#Installation et Exécution)
+- [Utilisation] (#Utilisation)
+- [Objectifs Pédagogiques] (#Objectifs Pédagogiques)
+- [Conclusion] (#Conclusion)
+
+  
 # Introduction
 Le Jeu de la Vie est un automate cellulaire conçu par le mathématicien John Conway en 1970. Il s'agit d'un modèle de simulation où des cellules sur une grille évoluent au fil du temps selon des règles simples, mais capables de générer des comportements complexes. Ce projet illustre comment un système basé sur des principes simples peut aboutir à des configurations dynamiques et imprévisibles.
 
@@ -10,7 +24,7 @@ L’objectif de ce projet est de reproduire ces comportements en exploitant des 
 - Un mode console, pour la simplicité et l’accès aux fichiers d’état.
 - Un mode graphique, offrant une interface utilisateur interactive grâce à SFML.
 
-## Règles_du_Jeu_de_la_Vie
+## Règles du Jeu de la Vie
 Les règles définissent la manière dont une cellule passe de l’état "vivante" à "morte" ou inversement, selon son environnement immédiat (voisins). Ces règles sont déterministes :
 
    <Pour une cellule vivante :>
@@ -24,7 +38,7 @@ Surpopulation si elle a plus de 3 voisins vivants.
 Elle devient vivante si elle a exactement 3 voisins vivants.
 Elle reste morte dans les autres cas.
 
-## Architecture_du_Projet
+## Architecture du Projet
 
 
 Le projet est structuré en trois couches principales pour une meilleure organisation et modularité :
@@ -42,7 +56,7 @@ Le projet est structuré en trois couches principales pour une meilleure organis
         Mode Console : Permet de visualiser et sauvegarder les états successifs sous forme textuelle.
         Mode Graphique : Utilise la bibliothèque SFML pour afficher et interagir avec la grille via une interface graphique.
 
-## Diagramme_UML
+## Diagramme UML
 
 - Le diagramme UML représentant les couches et leurs relations est inclus dans le projet (voir le fichier diagramme UML).
 ## Fonctionnalités
@@ -71,7 +85,7 @@ Chaque itération est sauvegardée selon un format défini.
     SFML (pour le mode graphique)
     Make (pour la compilation)
 
-## Installation_et_Exécution
+## Installation et Exécution
 - Depuis le Terminal:
 
     Clonez le dépôt Git :
