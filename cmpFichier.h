@@ -1,15 +1,17 @@
 #ifndef FICHIER_H
 #define FICHIER_H
+
+#include "Grille.h"
 #include <string>
-#include "cmpGrille.h"
-using namespace std;
 
 class Fichier {
 private:
-	string NomFichier;
+    std::string nomFichier;
+
 public:
-	Grille LireFichier(const string& fichier); // Méthode pour lire le fichier fourni
-	void EcrireFichier(const Grille& grid, const string& fichier); // Méthode pour écrire les changements de la grille dans un fichier
+    explicit Fichier(const std::string& nom);
+    Grille LireFichier() const;
+    void EcrireFichier(const Grille& grille, const std::string& fichierSortie) const;
 };
 
-#endif
+#endif 
