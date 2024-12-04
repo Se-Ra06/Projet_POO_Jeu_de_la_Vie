@@ -1,26 +1,30 @@
 #ifndef GRILLE_H
 #define GRILLE_H
+
 #include <vector>
-#include <string>
-#include <stdexcept>
-#include "cmpCellule.h"
-
-using namespace std;
-
+#include "Cellule.h"
 
 class Grille {
-protected:
-	int largeur;
-	int longueur;
+private:
+    std::vector<std::vector<Cellule*>> grid;
+    int largeur;
+    int longueur;
+
+    int wrapIndex(int index, int max) const;
+
 public:
-	vector<vector<Cellule*>> grid;
-	Grille(int longueur, int largeur); // Constructeur
-	~Grille(); // Destructeur
-	void initialisationGrille(const string& fichier); // Initialisation à partir du fichier fourni
-	int NombreVoisinsVivants(int x, int y); // Méthode pour calculer le nombre de voisins vivants
-	bool GetCelluleEtat(int x, int y); // Getter pour obtenir l'état des cellules 
-	void SetCelluleEtat(int x, int y, bool etat); // Setter pour changer l'état des cellules
-	void getEtat(); // Méthode pour mettre à jour l'état de la grille
+    Grille(int largeur, int longueur);
+    
+
+    void InitialisationGrille(const std::vector<std::vector<int>>& etatInitial);
+    bool getEtat(int x, int y) const;
+    Cellule* GetCelluleEtat(int x, int y) const;
+    int NombreVoisinsVivants(int x, int y) const;
+    void SetCelluleEtat(int x, int y, bool etat);
+    int getLargeur() const { return largeur; }
+    int getLongueur() const { return longueur; }
+    void MiseAJourGrille();
+    
 };
 
-#endif
+#endif 
