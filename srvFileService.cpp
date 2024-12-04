@@ -1,47 +1,75 @@
-#include "srvFileService.h"
-#include <iostream>
+#include "FileService.h"
 #include <fstream>
+#include <stdexcept>
+#include <sstream>
+#include <vector>
+#include <iostream>
+
 #include <direct.h>
-using namespace std;
 
+Grille FileService::ChargerDuFichier(const std::string& fichier) {
+    std::ifstream inFile(fichier);
+    if (!inFile) {
+        throw std::runtime_error("Erreur lors de l'ouverture du fichier : " + fichier);
+    }
 
+    int largeur, longueur;
+    inFile >> largeur >> longueur;
 
-bool FileService::ValiderFichier(const string& nomfichier) {
-	ifstream file(nomfichier);
-	if (!file.is_open()) {
-		cerr << "Erreur : impossible d'ouvrir le fichier " << nomfichier << ".\n";
-		return false;
-	}
-	file.close();
-	return true;
+    if (largeur <= 0 || longueur <= 0) {
+        throw std::invalid_argument("Dimensions invalides dans le fichier : " + fichier);
+    }
+
+    std::vector<std::vector<int>> etatInitial = LireEtatGrille(fichier);
+    Grille grille(largeur, longueur);
+    grille.InitialisationGrille(etatInitial);
+
+    std::cout << "Grille chargée avec succès. Dimensions: " << largeur << "x" << longueur << std::endl;
+    return grille;
 }
 
-void FileService::ChargerDuFichier(const string& nomfichier, Grille& grille) {
-	if (!ValiderFichier(nomfichier)) {
-		throw runtime_error("Fichier invalide ou introuvable");
-	}
-	grille.initialisationGrille(nomfichier);
+void FileService::SauvegarderGrille(const Grille& grille, const std::string& fichier) {
+    std::ofstream outFile(fichier);
+    if (!outFile) {
+        throw std::runtime_error("Impossible de créer le fichier : " + fichier);
+    }
+
+    outFile << grille.getLargeur() << " " << grille.getLongueur() << "\n";
+    for (int i = 0; i < grille.getLongueur(); ++i) {
+        for (int j = 0; j < grille.getLargeur(); ++j) {
+            outFile << (grille.getEtat(i, j) ? "1" : "0") << " ";
+        }
+        outFile << "\n";
+    }
 }
 
-void FileService::SauvegarderAuFichier(const string& nomfichier, const Grille& grille) {
-	ofstream file(nomfichier);
-	if (!file.is_open()) {
-		throw runtime_error("Impossible de sauvegarder dans le fichier" + nomfichier);
-	}
-	for (const auto& row : grille.grid) {
-		for (const auto& cellule : row) {
-			file << (cellule->status() ? '1' : '0');
-		}
-		file << '\n';
-	}
-	file.close();
+void FileService::SauvegarderIteration(const Grille& grille, const std::string& outputDir, int iteration) {
+    if (_mkdir(outputDir.c_str()) != 0 && errno != EEXIST) {
+        throw std::runtime_error("Erreur lors de la création du répertoire : " + outputDir);
+    }
+    std::string fichier = outputDir + "/iteration_" + std::to_string(iteration) + ".txt";
+
+    
+    SauvegarderGrille(grille, fichier); 
+    
 }
 
-void FileService::CreateOutputDir(const string& directory) {
-	if (_mkdir(directory.c_str()) != 0) {
-		if (errno != EEXIST) {
-			throw runtime_error("Impossible de cr�er le r�pertoire " + directory);
-		}
-	}
-}
+std::vector<std::vector<int>> FileService::LireEtatGrille(const std::string& fichier) {
+    std::ifstream inFile(fichier);
+    if (!inFile) {
+        throw std::runtime_error("Erreur lors de l'ouverture du fichier : " + fichier);
+    }
 
+    int largeur, longueur;
+    inFile >> largeur >> longueur;
+
+    std::vector<std::vector<int>> etat(longueur, std::vector<int>(largeur));
+    for (int i = 0; i < longueur; ++i) {
+        for (int j = 0; j < largeur; ++j) {
+            if (!(inFile >> etat[i][j])) {
+                throw std::runtime_error("Erreur lors de la lecture des données");
+            }
+        }
+    }
+    return etat;
+}
