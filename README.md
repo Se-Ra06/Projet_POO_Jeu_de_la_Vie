@@ -1,146 +1,186 @@
-# Projet_POO_Jeu_de_la_Vie
-Ce projet vous est présenté par RADI Selma Meriem et RECHAM Wissam
 
-# Table des matière :
-- [Introduction] 
-- [Règles du Je de la Vie] 
-- [Architecture du projet] 
-- [Diagramme UML] 
-- [Fonctionnalité] 
-- [Extensions Implémentées] 
-- [Prérequis Techniques] 
-- [Installation et Exécution] 
-- [Utilisation] 
-- [Objectifs Pédagogiques] 
-- [Conclusion] 
+# **🌟 Projet POO : Jeu de la Vie 🌟**
 
-  
-# Introduction
-Le Jeu de la Vie est un automate cellulaire conçu par le mathématicien John Conway en 1970. Il s'agit d'un modèle de simulation où des cellules sur une grille évoluent au fil du temps selon des règles simples, mais capables de générer des comportements complexes. Ce projet illustre comment un système basé sur des principes simples peut aboutir à des configurations dynamiques et imprévisibles.
+### Ce projet vous est présenté par :  
+👩‍💻 **RADI Selma Meriem**  
+👨‍💻 **RECHAM Wissam**
 
-<Objectif du projet>
-L’objectif de ce projet est de reproduire ces comportements en exploitant des concepts de programmation orientée objet (POO) pour une solution modulaire et extensible. Deux modes d’interaction sont proposés :
+---
 
-- Un mode console, pour la simplicité et l’accès aux fichiers d’état.
-- Un mode graphique, offrant une interface utilisateur interactive grâce à SFML.
+## **📖 Table des matières**
+1. [📚 Introduction](#introduction)  
+2. [⚙️ Règles du Jeu de la Vie](#règles-du-jeu-de-la-vie)  
+3. [🏗️ Architecture du projet](#architecture-du-projet)  
+4. [📈 Diagramme UML](#diagramme-uml)  
+5. [✨ Fonctionnalités](#fonctionnalités)  
+6. [🚀 Extensions Implémentées](#extensions-implémentées)  
+7. [🔧 Prérequis Techniques](#prérequis-techniques)  
+8. [💻 Installation et Exécution](#installation-et-exécution)  
+9. [🎮 Utilisation](#utilisation)  
+10. [🎯 Objectifs Pédagogiques](#objectifs-pédagogiques)  
+11. [🏁 Conclusion](#conclusion)
 
-## Règles du Jeu de la Vie
-Les règles définissent la manière dont une cellule passe de l’état "vivante" à "morte" ou inversement, selon son environnement immédiat (voisins). Ces règles sont déterministes :
+---
 
-   <Pour une cellule vivante :>
+## **📚 Introduction**
 
-Elle survit si elle a 2 ou 3 voisins vivants.
-Elle meurt par :
-Isolation si elle a moins de 2 voisins vivants.
-Surpopulation si elle a plus de 3 voisins vivants.
-  < Pour une cellule morte :>
+Le **Jeu de la Vie** est un automate cellulaire conçu par le mathématicien John Conway en 1970.  
+Il simule l'évolution d'une grille de cellules vivantes et mortes selon des règles simples mais fascinantes.  
 
-Elle devient vivante si elle a exactement 3 voisins vivants.
-Elle reste morte dans les autres cas.
+**🎯 Objectif du projet :**  
+Reproduire ce comportement en exploitant les principes de la **programmation orientée objet (POO)** pour une solution modulaire et extensible.
 
-## Architecture du Projet
+### **Deux modes d'interaction :**
+- 🖥️ **Mode console :** Accès simplifié aux états textuels.  
+- 🖼️ **Mode graphique :** Interface interactive via **SFML**.
 
+---
 
-Le projet est structuré en trois couches principales pour une meilleure organisation et modularité :
-1. Composants
+## **⚙️ Règles du Jeu de la Vie**
 
-    Contient les éléments de base nécessaires au fonctionnement de l'automate cellulaire (e.g., la classe Cellule, Grille).
+### **Pour une cellule vivante :**
+- ✅ **Survit** si elle a **2** ou **3 voisins vivants**.  
+- ❌ **Meurt** par :  
+  - **Isolement** : moins de 2 voisins vivants.  
+  - **Surpopulation** : plus de 3 voisins vivants.  
 
-2. Service
+### **Pour une cellule morte :**
+- 🌱 **Devient vivante** si elle a exactement **3 voisins vivants**.  
+- ➖ **Reste morte** dans tous les autres cas.
 
-    Fournit les fonctionnalités logiques pour gérer la simulation et les interactions avec les fichiers (e.g., chargement/sauvegarde des états, gestion des règles).
+---
 
-3. Interface
+## **🏗️ Architecture du Projet**
 
-    Gère les interactions utilisateur et propose deux modes :
-        Mode Console : Permet de visualiser et sauvegarder les états successifs sous forme textuelle.
-        Mode Graphique : Utilise la bibliothèque SFML pour afficher et interagir avec la grille via une interface graphique.
+Le projet est structuré en trois couches principales :  
 
-## Diagramme UML
+### **1️⃣ Composants :**  
+   📦 Classes de base nécessaires au fonctionnement de l'automate (e.g., `Cellule`, `Grille`).  
 
-- Le diagramme UML représentant les couches et leurs relations est inclus dans le projet (voir le fichier diagramme UML).
-## Fonctionnalités
-- Mode Console
+### **2️⃣ Service :**  
+   🔄 Gestion de la simulation et interactions avec les fichiers (e.g., chargement/sauvegarde des états).  
 
-Permet de visualiser les états successifs de la grille sous forme textuelle.
-Les résultats sont enregistrés dans des fichiers et organisés en dossiers.
-Chaque itération est sauvegardée selon un format défini.
+### **3️⃣ Interface :**  
+   🖥️ Deux modes d'interaction :  
+   - **Console :** Affichage textuel des états.  
+   - **Graphique :** Interface interactive avec **SFML**.
 
-- Mode Graphique
+---
 
-    Permet de visualiser et manipuler la grille via une interface graphique :
-    Cliquez gauche pour rendre une cellule vivante.
-    Espace pour lancer/arrêter la simulation.
-    R pour réinitialiser la grille.
-    Les motifs peuvent être créés librement ou ajoutés à l'aide de motifs prédéfinis.
+## **📈 Diagramme UML**
 
-  ## Extensions Implémentées
+📌 Le diagramme UML détaillant les relations entre les couches est inclus dans le projet.  
+> Voir le fichier **`diagramme_UML.png`** dans le dépôt.
 
-    - Grille Torique : Les cellules situées sur les bords de la grille sont connectées, formant une surface "enroulée".
-    - Motifs Préprogrammés : Possibilité d'insérer des motifs prédéfinis sur la grille en appuyant sur des touches spécifiques.
+---
 
-  ## Prérequis Techniques
+## **✨ Fonctionnalités**
 
-    C++17 ou supérieur
-    SFML (pour le mode graphique)
-    Make (pour la compilation)
+### **🖥️ Mode Console :**
+- Affichage textuel des états successifs.  
+- Sauvegarde automatique des résultats dans des fichiers.  
+- Organisation des itérations dans des dossiers.
 
-## Installation et Exécution
-- Depuis le Terminal:
+### **🖼️ Mode Graphique :**
+- **Interactions utilisateur :**  
+  - 🖱️ **Clic gauche :** Rendre une cellule vivante.  
+  - 🔄 **Touche Espace :** Démarrer/arrêter la simulation.  
+  - 🔃 **Touche R :** Réinitialiser la grille.  
+- **Création de motifs :** Dessinez librement ou insérez des motifs prédéfinis.
 
-    Clonez le dépôt Git :
+---
 
-git clone https://github.com/Se-Ra06/Projet_POO_Jeu_de_la_Vie.git
+## **🚀 Extensions Implémentées**
 
-- Accédez au répertoire du projet :
+1. 🌐 **Grille Torique :** Les cellules des bords sont connectées, simulant une surface "enroulée".  
 
-cd Projet_POO_Jeu_de_la_Vie
+2. 🎨 **Motifs Préprogrammés :** Ajout de motifs prédéfinis avec des touches spécifiques.
 
-- Compilez le projet avec make :
+---
 
-make
+## **🔧 Prérequis Techniques**
 
-- Exécutez le programme :
+- 🛠️ **C++17** ou supérieur.  
+- 🖼️ **SFML** (pour le mode graphique).  
+- 📦 **Make** (pour la compilation).
 
-    ./Projet_POO_Jeu_de_la_Vie
+---
 
-- Depuis Visual Studio
+## **💻 Installation et Exécution**
 
-    Ouvrez Visual Studio.
-    Sélectionnez l'option Cloner un dépôt.
-    Collez l'URL suivante :
+### **🖥️ Depuis le terminal :**
 
-    https://github.com/Se-Ra06/Projet_POO_Jeu_de_la_Vie.git
+1. **Clonez le dépôt Git :**  
+   ```bash
+   git clone https://github.com/Se-Ra06/Projet_POO_Jeu_de_la_Vie.git
+   ```
 
-    Lancez le projet en cliquant sur l'icône de lancement (bouton vert en haut de l'interface).
+2. **Accédez au répertoire du projet :**  
+   ```bash
+   cd Projet_POO_Jeu_de_la_Vie
+   ```
 
-  ## Utilisation
-    <Choix du Mode :>
-        - Console : Affiche les états successifs sous forme textuelle.
-        - Graphique : Ouvre une fenêtre interactive.
-    <Mode Graphique :>
-        - Créer un motif :
-            Utilisez le clic gauche pour rendre une cellule vivante.
-        - Lancer la simulation :
-            Appuyez sur Espace pour démarrer ou arrêter la simulation.
-      - Réinitialiser la grille :
-            Appuyez sur R.
+3. **Compilez le projet avec Make :**  
+   ```bash
+   make
+   ```
 
-## Objectifs Pédagogiques
+4. **Exécutez le programme :**  
+   ```bash
+   ./Projet_POO_Jeu_de_la_Vie
+   ```
 
-Ce projet vise à :
+### **🛠️ Depuis Visual Studio :**
+1. Ouvrez **Visual Studio**.  
+2. Sélectionnez **Cloner un dépôt**.  
+3. Collez l’URL du projet :  
+   ```plaintext
+   https://github.com/Se-Ra06/Projet_POO_Jeu_de_la_Vie.git
+   ```
+4. Lancez le projet en cliquant sur **Exécuter** (bouton vert).
 
-- Approfondir la maîtrise des concepts fondamentaux de la programmation orientée objet (POO) en C++.
-- Structurer un programme de manière modulaire.
-- Exploiter des outils modernes comme la bibliothèque SFML pour le développement d’interfaces graphiques.
+---
 
+## **🎮 Utilisation**
 
-  # Conclusion
-  Le Jeu de la Vie est un projet qui combine simplicité des règles et richesse des résultats. En le développant, nous avons appliqué les concepts essentiels de la 
-  programmation orientée objet tout en structurant le code de manière claire et modulaire.
+### **Choix du mode :**
+- 🖥️ **Mode Console :** Affichage des états textuels.  
+- 🖼️ **Mode Graphique :** Interface interactive.
 
-  Ce projet nous a permis d’approfondir nos compétences en C++, d’explorer le développement graphique avec SFML et de relever des défis techniques, comme la 
-  gestion des grilles ou l’optimisation des calculs.
+### **Mode Graphique :**
+- 🎨 **Créer un motif :**  
+  🖱️ Cliquez gauche pour rendre une cellule vivante.  
+- 🔄 **Lancer la simulation :**  
+  Appuyez sur `Espace` pour démarrer/arrêter.  
+- 🔃 **Réinitialiser la grille :**  
+  Appuyez sur `R`.
 
-  En résumé, ce travail offre une solution complète et extensible, tout en fournissant une base solide pour de futures améliorations ou extensions. C’est une 
-  excellente opportunité de lier théorie et pratique de manière ludique et instructive.
+---
+
+## **🎯 Objectifs Pédagogiques**
+
+Ce projet vise à :  
+- 🏗️ Approfondir les concepts de **programmation orientée objet (POO)**.  
+- 🧹 Structurer un programme de manière modulaire et lisible.  
+- 🎨 Explorer **SFML** pour créer des interfaces graphiques.  
+- 🤝 Travailler sur des projets collaboratifs.
+
+---
+
+## **🏁 Conclusion**
+
+Le **Jeu de la Vie** démontre comment des règles simples peuvent générer des comportements complexes.  
+
+En réalisant ce projet, nous avons :  
+- 🚀 Mis en œuvre les principes fondamentaux de la POO.  
+- 🔄 Structuré un programme modulaire et extensible.  
+- 🛠️ Relevé des défis techniques comme la gestion des grilles ou l'optimisation des calculs.
+
+**🔮 Perspectives :**  
+Ce projet offre une base solide pour des améliorations futures et illustre l'intérêt d'allier théorie et pratique dans un cadre éducatif.
+
+---
+
+✨ **Merci de découvrir notre projet !** ✨
+
+---
