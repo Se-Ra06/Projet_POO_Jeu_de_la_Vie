@@ -4,9 +4,10 @@
 
 class CelluleVie : public Cellule {
 public:
-	CelluleVie();
+	
 	bool status() const override;
 	virtual bool nextStatus(int voisinsVivants) const override;
 };
 
 #endif
+
