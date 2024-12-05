@@ -1,5 +1,5 @@
-#include "ModeGraphique.h"
-#include "Grille.h"
+#include "ihmModeGraphique.h"
+#include "cmpGrille.h"
 #include <thread>
 #include <chrono>
 #include <vector> 
