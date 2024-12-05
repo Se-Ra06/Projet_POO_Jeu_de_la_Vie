@@ -2,7 +2,7 @@
 #define GRILLE_H
 
 #include <vector>
-#include "Cellule.h"
+#include "cmpCellule.h"
 
 class Grille {
 private:
