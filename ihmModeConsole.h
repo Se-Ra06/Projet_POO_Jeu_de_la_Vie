@@ -2,7 +2,7 @@
 #define MODECONSOLE_H
 
 #include <string>
-#include "Jeu.h"
+#include "srvJeu.h"
 
 class ModeConsole {
 private:
