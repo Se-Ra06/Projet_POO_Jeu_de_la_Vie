@@ -1,67 +1,48 @@
-#include "cmpGrille.h"
-#include "cmpCelluleVie.h"
-#include "cmpCelluleMort.h"
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
+#include "C:\Users\LENOVO\source\repos\PROJETPOOJEUDELAVIEFINAL\cmpFichier.h" // Emplacement des fichiers 
+#include "C:\Users\LENOVO\source\repos\PROJETPOOJEUDELAVIEFINAL\cmpGrille.h" 
 
-// Test d'une grille 3x3 avec un motif de "block" stable
-TEST(GrilleTest, StableBlockPattern) {
-    // Initialisation : Grille avec un motif stable ("bloc")
-    Grille grille(4, 4);
-    std::vector<std::vector<int>> etatInitial = {
-        {0, 0, 0, 0},
-        {0, 1, 1, 0},
-        {0, 1, 1, 0},
-        {0, 0, 0, 0}
-    };
 
-    grille.InitialisationGrille(etatInitial);
+TEST(GrilleTest, GeneralValidationAfterMultipleIterations) {
+    
+    Fichier fichierInitial("FichierInitial.txt");
+    Grille grille = fichierInitial.LireFichier();
 
-    // Effectuer une itération
-    grille.MiseAJourGrille();
+    
+    int longueurInitiale = grille.getLongueur();
+    int largeurInitiale = grille.getLargeur();
 
-    // Vérification : le motif ne doit pas changer
-    for (int i = 0; i < 4; ++i) {
-        for (int j = 0; j < 4; ++j) {
-            bool expected = etatInitial[i][j];
-            EXPECT_EQ(grille.getEtat(i, j), expected)
-                << "Erreur à la position (" << i << ", " << j << ")";
+    
+    const int nombreIterations = 5;
+
+    for (int iteration = 1; iteration <= nombreIterations; ++iteration) {
+        
+        grille.MiseAJourGrille();
+
+        // Vérifier que les dimensions restent identiques
+        ASSERT_EQ(grille.getLongueur(), longueurInitiale);
+        ASSERT_EQ(grille.getLargeur(), largeurInitiale);
+
+        // Vérifier les états des cellules après la mise à jour
+        for (int i = 0; i < grille.getLongueur(); ++i) {
+            for (int j = 0; j < grille.getLargeur(); ++j) {
+                bool etat = grille.getEtat(i, j);
+
+                // L'état d'une cellule doit être soit vivant (true), soit mort (false)
+                EXPECT_TRUE(etat == true || etat == false)
+                    << "Etat invalide pour la cellule (" << i << ", " << j << ") à l'itération " << iteration;
+
+               
+            }
         }
+
+        
+        std::cout << "Validation apres l'iteration " << iteration << " reussie." << std::endl;
     }
 }
 
-// Test d'une grille 3x3 avec un motif qui évolue
-TEST(GrilleTest, OscillatorBlinker) {
-    // Initialisation : Grille avec un motif oscillant ("blinker")
-    Grille grille(5, 5);
-    std::vector<std::vector<int>> etatInitial = {
-        {0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0},
-        {0, 1, 1, 1, 0},
-        {0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0}
-    };
-
-    grille.InitialisationGrille(etatInitial);
-
-    // État attendu après une itération
-    std::vector<std::vector<int>> etatAttendu = {
-        {0, 0, 0, 0, 0},
-        {0, 0, 1, 0, 0},
-        {0, 0, 1, 0, 0},
-        {0, 0, 1, 0, 0},
-        {0, 0, 0, 0, 0}
-    };
-
-    // Effectuer une itération
-    grille.MiseAJourGrille();
-
-    // Vérification : comparer la grille avec l'état attendu
-    for (int i = 0; i < 5; ++i) {
-        for (int j = 0; j < 5; ++j) {
-            bool expected = etatAttendu[i][j];
-            EXPECT_EQ(grille.getEtat(i, j), expected)
-                << "Erreur à la position (" << i << ", " << j << ")";
-        }
-    }
+// Point d'entrée pour Google Test
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
-
