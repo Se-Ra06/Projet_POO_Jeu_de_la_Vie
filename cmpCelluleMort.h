@@ -5,8 +5,8 @@
 class CelluleMort : public Cellule {
 public:
 	CelluleMort();
-	bool status() override;
-	Cellule* nextStatus(int voisins) override;
+	bool status() const override;
+	virtual bool nextStatus(int voisinsVivants) const override;
 };
 
 #endif
