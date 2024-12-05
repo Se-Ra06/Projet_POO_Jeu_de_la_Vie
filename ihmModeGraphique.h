@@ -2,7 +2,7 @@
 #define MODEGRAPHIQUE_H
 
 #include <SFML/Graphics.hpp>
-#include "Grille.h"
+#include "cmpGrille.h"
 
 class ModeGraphique {
 public:
