@@ -1,7 +1,7 @@
 #ifndef FICHIER_H
 #define FICHIER_H
 
-#include "Grille.h"
+#include "cmpGrille.h"
 #include <string>
 
 class Fichier {
