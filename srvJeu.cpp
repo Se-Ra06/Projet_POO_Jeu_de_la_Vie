@@ -3,8 +3,8 @@
 #include <stdexcept>
 #include <string>
 #include <direct.h>
-#include "Jeu.h"
-#include "FileService.h" 
+#include "srvJeu.h"
+#include "srvFileService.h" 
 
 
 
@@ -17,7 +17,7 @@ Jeu::Jeu(const Grille& grille, int iterations)
 void Jeu::Simulation(const std::string& outputDir) {
     
     if (_mkdir(outputDir.c_str()) != 0 && errno != EEXIST) {
-        throw std::runtime_error("Erreur lors de la création du repertoire : " + outputDir);
+        throw std::runtime_error("Erreur lors de la crÃ©ation du repertoire : " + outputDir);
     } 
 
     std::cout << "Debut de la simulation pour " << iterations << " iterations" << std::endl;
