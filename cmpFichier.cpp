@@ -1,4 +1,4 @@
-#include "Fichier.h"
+#include "cmpFichier.h"
 #include <fstream>
 #include <stdexcept>
 #include <sstream>
