@@ -67,7 +67,6 @@ int main() {
 
                 ModeGraphique modeGraphique;
                 modeGraphique.run();
-                modeGraphique.mettreAJourGrille(grille, nextGrille);
             }
             catch (const std::exception& e) {
                 std::cerr << "Erreur : " << e.what() << "\n";
