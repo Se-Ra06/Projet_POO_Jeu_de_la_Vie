@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include "ModeConsole.h"
-#include "ModeGraphique.h"
-#include "FileService.h"
-#include "Jeu.h"
+#include "ihmModeConsole.h"
+#include "ihmModeGraphique.h"
+#include "srvFileService.h"
+#include "srvJeu.h"
 #include <direct.h>
 
 
