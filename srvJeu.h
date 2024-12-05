@@ -1,7 +1,7 @@
 #ifndef JEU_H
 #define JEU_H
 
-#include "Grille.h"
+#include "cmpGrille.h"
 #include <string>
 
 class Jeu {
