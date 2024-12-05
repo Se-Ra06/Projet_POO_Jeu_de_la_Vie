@@ -1,4 +1,4 @@
-#include "CelluleMort.h"
+#include "cmpCelluleMort.h"
 
 bool CelluleMort::status() const {
     return false;
