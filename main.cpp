@@ -5,17 +5,25 @@
 #include "srvFileService.h"
 #include "srvJeu.h"
 #include <direct.h>
-
+#include <iostream>
 
 void afficherMenu() {
-    std::cout << "=============================\n";
-    std::cout << "  Jeu de la Vie - Menu\n";
-    std::cout << "=============================\n";
-    std::cout << "1. Mode Console\n";
-    std::cout << "2. Mode Graphique\n";
-    std::cout << "3. Quitter\n";
-    std::cout << "Choisissez une option : ";
+   
+    const std::string RESET = "\033[0m";
+    const std::string BOLD = "\033[1m";
+    const std::string PURPLE = "\033[35m";  
+    const std::string MAGENTA = "\033[95m"; 
+
+    std::cout << MAGENTA << "===============================\n";
+    std::cout << "|| " << BOLD << PURPLE << "     Jeu de la Vie       " << MAGENTA << " ||\n";
+    std::cout << "===============================\n";
+    std::cout << "|| 1. Mode Console           ||\n";
+    std::cout << "|| 2. Mode Graphique         ||\n";
+    std::cout << "|| 3. Quitter                ||\n";
+    std::cout << "===============================\n";
+    std::cout << RESET << ">> Choisissez une option : ";
 }
+
 
 int main() {
     int choix;
@@ -36,14 +44,14 @@ int main() {
                 std::cout << "Entrez le nombre d'iterations : ";
                 std::cin >> iterations;
 
-                
+
                 Jeu jeu(grille, iterations);
 
-                
+
                 if (_mkdir(outputDir.c_str()) != 0 && errno != EEXIST) {
                     throw std::runtime_error("Erreur lors de la creation du repertoire : " + outputDir);
-                } 
-                
+                }
+
 
                 jeu.Simulation(outputDir);
 
@@ -63,10 +71,11 @@ int main() {
                 using GrilleGraph = std::vector<std::vector<bool>>;
 
                 GrilleGraph grille;
-                GrilleGraph nextGrille = grille;
+                GrilleGraph nextGrille;
 
                 ModeGraphique modeGraphique;
                 modeGraphique.run();
+                
             }
             catch (const std::exception& e) {
                 std::cerr << "Erreur : " << e.what() << "\n";
