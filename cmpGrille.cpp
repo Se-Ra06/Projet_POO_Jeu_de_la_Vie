@@ -1,6 +1,6 @@
-#include "Grille.h"
-#include "CelluleVie.h"
-#include "CelluleMort.h"
+#include "cmpGrille.h"
+#include "cmpCelluleVie.h"
+#include "cmpCelluleMort.h"
 #include <stdexcept>
 #include <iostream>  
 
@@ -61,14 +61,19 @@ int Grille::wrapIndex(int index, int max) const {
 
 int Grille::NombreVoisinsVivants(int x, int y) const {
     int count = 0;
-    for (int i = -1; i <= 1; ++i) {
-        for (int j = -1; j <= 1; ++j) {
-            if (!(i == 0 && j == 0)) {
-                int nx = wrapIndex(x + i, longueur);
-                int ny = wrapIndex(y + j, largeur);
-                if (grid[nx][ny]->status()) {
-                    ++count;
-                }
+
+    for (int dx = -1; dx <= 1; ++dx) {
+        for (int dy = -1; dy <= 1; ++dy) {
+            
+            if (dx == 0 && dy == 0) continue;
+
+            // Calculer les indices des voisins
+            int nx = wrapIndex(x + dx, longueur);
+            int ny = wrapIndex(y + dy, largeur);
+
+            // Vérifier si le voisin est vivant
+            if (grid[nx][ny] && grid[nx][ny]->status()) {
+                ++count;
             }
         }
     }
@@ -92,17 +97,26 @@ Cellule* Grille::GetCelluleEtat(int x, int y) const {
 }
 
 void Grille::MiseAJourGrille() {
+    
     std::vector<std::vector<bool>> prochainsEtats(longueur, std::vector<bool>(largeur));
 
+    // Calculer les états pour la prochaine itération
     for (int i = 0; i < longueur; ++i) {
         for (int j = 0; j < largeur; ++j) {
             int voisinsVivants = NombreVoisinsVivants(i, j);
-            prochainsEtats[i][j] = grid[i][j]->status()
-                ? (voisinsVivants == 2 || voisinsVivants == 3)
-                : (voisinsVivants == 3);
+
+            if (grid[i][j]->status()) {
+                // Cellule vivante : reste vivante avec 2 ou 3 voisins
+                prochainsEtats[i][j] = (voisinsVivants == 2 || voisinsVivants == 3);
+            }
+            else {
+                // Cellule morte : devient vivante avec exactement 3 voisins
+                prochainsEtats[i][j] = (voisinsVivants == 3);
+            }
         }
     }
 
+    // Appliquer les nouveaux états à la grille
     for (int i = 0; i < longueur; ++i) {
         for (int j = 0; j < largeur; ++j) {
             SetCelluleEtat(i, j, prochainsEtats[i][j]);
