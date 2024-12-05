@@ -1,12 +1,9 @@
-#ifndef CELLULEM_H
-#define CELLULEM_H
-#include "cmpCellule.h"
+#include "cmpCelluleMort.h"
 
-class CelluleMort : public Cellule {
-public:
-	CelluleMort();
-	bool status() const override;
-	virtual bool nextStatus(int voisinsVivants) const override;
-};
+bool CelluleMort::status() const {
+    return false;
+}
 
-#endif
+bool CelluleMort::nextStatus(int voisinsVivants) const {
+    return (voisinsVivants == 3);
+}
