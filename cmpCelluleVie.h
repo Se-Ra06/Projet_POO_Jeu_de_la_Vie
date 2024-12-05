@@ -1,13 +1,12 @@
-#ifndef CELLULEV_H
-#define CELLULLEV_H
+#ifndef CELLULEM_H
+#define CELLULEM_H
 #include "cmpCellule.h"
 
 class CelluleVie : public Cellule {
 public:
-
 	CelluleVie();
-	bool status() override;
-	Cellule* nextStatus(int voisins) override;
+	bool status() const override;
+	virtual bool nextStatus(int voisinsVivants) const override;
 };
 
 #endif
