@@ -69,8 +69,8 @@ Le projet est structuré en trois couches principales :
 
 ## **📈 Diagramme UML**
 
-📌 Le diagramme UML détaillant les relations entre les couches est inclus dans le projet.  
-> Voir le fichier **`diagramme_UML.png`** dans le dépôt.
+📌 Le diagramme UML détaillant les relations entre les couches est inclus dans le projet :
+
 ![image](https://github.com/user-attachments/assets/ec4da69d-bc07-49a1-9e97-9182572349b1)
 
 ---
